@@ -1,0 +1,2 @@
+DESC="Várias contas do GitHub no mesmo computador, para git e gh: a conta certa é escolhida pelo dono do remoto, sem autenticação em nenhuma pasta."
+TOPICS="git,github,github-cli,multi-account,credential-helper,bash,systemd-creds,linux,devtools"

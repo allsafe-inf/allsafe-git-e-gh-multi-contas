@@ -1,0 +1,25 @@
+%%{init: {"theme": "dark"}}%%
+flowchart TD
+    quem@{ shape: person, label: "Usuário ou IA" }
+    git@{ shape: console, label: "git<br>push, pull, fetch, clone" }
+    auxiliar@{ shape: console, label: "git-credential-github-multiconta<br>auxiliar de credencial" }
+    gh@{ shape: console, label: "gh do github-multiconta<br>invólucro em ~/.local/bin" }
+    lib@{ shape: rect, label: "lib.sh<br>escolhe a conta e lê o token" }
+    tem@{ shape: diam, label: "a conta<br>tem token?" }
+    github@{ shape: cloud, label: "GitHub" }
+    aviso@{ shape: stadium, label: "para com aviso<br>conta sem token" }
+    contas@{ shape: doc, label: "contas.conf<br>remoto, login e donos" }
+    tokens@{ shape: docs, label: "tokens cifrados<br>um arquivo por conta" }
+    sessao@{ shape: lin-cyl, label: "cópia da sessão<br>em memória, só do usuário" }
+
+    quem -- "1a · roda um comando do git" --> git
+    quem -- "1b · roda um comando do gh" --> gh
+    git -- "2a · pede a credencial do endereço" --> auxiliar
+    auxiliar -- "3a · informa o dono do endereço" --> lib
+    gh -- "2b · informa o pedido e a pasta" --> lib
+    lib -- "4 · conta escolhida" --> tem
+    tem -- "5a · sim: segue com a conta certa, HTTPS 443" --> github
+    tem -- "5b · não" --> aviso
+    lib -. "lê" .-> contas
+    lib -. "decifra uma vez por sessão" .-> tokens
+    lib -. "lê e grava" .-> sessao

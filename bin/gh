@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Invólucro do gh: escolhe a conta do pedido e entrega o token só a este processo (GH_TOKEN).
+# Não usa "gh auth login" nem "gh auth switch": não há conta ativa global para um agente trocar
+# no meio do trabalho de outro.
+# Ordem da escolha: GH_CONTA, -R/--repo, GH_REPO, dono em um argumento, remoto origin da pasta, conta padrão.
+set -uo pipefail
+# shellcheck source=../lib/github-multiconta.sh
+. "${GHM_LIB:-$HOME/.local/share/github-multiconta/lib.sh}" || exit 1
+ghm_no_host "$0" "$@"
+ghm_gh_real "$0" || { echo "github-multiconta: gh não está instalado neste equipamento" >&2; exit 127; }
+
+# Token já dado por quem chamou, ou comando de login do próprio gh: passa direto.
+if [[ -n "${GH_TOKEN:-}${GITHUB_TOKEN:-}" ]]; then exec "$GHM_GH" "$@"; fi
+if [[ "${1:-}" == auth && "${2:-}" != status && "${2:-}" != token ]]; then exec "$GHM_GH" "$@"; fi
+ghm_carregar || { echo "github-multiconta: sem contas em $GHM_CONF/contas.conf (rode o instalar.sh do kit)" >&2; exit 4; }
+
+ghm_conta_do_pedido "$@" || exit 4
+if ! ghm_token "${GHM_LOGINS[GHM_I]}"; then
+  echo "github-multiconta: conta ${GHM_LOGINS[GHM_I]} sem token (coloque em .secrets/ do kit e rode o instalar.sh)" >&2
+  exit 4
+fi
+GH_TOKEN="$GHM_T" exec "$GHM_GH" "$@"

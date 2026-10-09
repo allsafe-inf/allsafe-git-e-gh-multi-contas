@@ -1,0 +1,9 @@
+%%{init: {"theme": "dark"}}%%
+flowchart LR
+    usuario@{ shape: person, label: "Usuário" }
+    instalar@{ shape: console, label: "instalar.sh<br>lê o .env e o .secrets" }
+    multiconta@{ shape: rect, label: "github-multiconta<br>contas e tokens cifrados" }
+    comandos@{ shape: console, label: "git e gh<br>em qualquer pasta" }
+    github@{ shape: cloud, label: "GitHub<br>a conta do dono do remoto" }
+
+    usuario --> instalar --> multiconta --> comandos --> github

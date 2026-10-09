@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Consulta e teste das contas do GitHub deste equipamento. Nunca mostra token.
+# Uso: github-multiconta contas | testar | esquecer
+set -uo pipefail
+# shellcheck source=../lib/github-multiconta.sh
+. "${GHM_LIB:-$HOME/.local/share/github-multiconta/lib.sh}" || exit 1
+ghm_no_host "$0" "$@"
+
+case "${1:-contas}" in
+  contas)
+    ghm_carregar || { echo "Sem contas em $GHM_CONF/contas.conf: rode o instalar.sh do kit." >&2; exit 1; }
+    printf '%-12s %-24s %-9s %s\n' REMOTO LOGIN TOKEN DONOS
+    for i in "${!GHM_LOGINS[@]}"; do
+      printf '%-12s %-24s %-9s %s\n' "${GHM_REMOTOS[i]}" "${GHM_LOGINS[i]}" "$(ghm_estado_token "${GHM_LOGINS[i]}")" "${GHM_DONOS[i]}"
+    done
+    ;;
+  testar)
+    ghm_carregar || { echo "Sem contas em $GHM_CONF/contas.conf: rode o instalar.sh do kit." >&2; exit 1; }
+    falhas=0
+    for i in "${!GHM_LOGINS[@]}"; do
+      login="${GHM_LOGINS[i]}"; dono="${GHM_DONOS[i]%%,*}"
+      # O git tem de receber, para um repositório desse dono, o login desta conta e uma senha.
+      resposta="$(printf 'protocol=https\nhost=github.com\npath=%s/teste.git\n\n' "$dono" | GIT_TERMINAL_PROMPT=0 git credential fill 2>/dev/null)"
+      if [[ "$resposta" == *"username=$login"* && "$resposta" == *"password="?* ]]; then git_ok=ok; else git_ok=FALHOU; falhas=$((falhas+1)); fi
+      resposta=""
+      gh_ok="sem gh"
+      if ghm_gh_real "$0" && ghm_token "$login"; then
+        quem="$(GH_TOKEN="$GHM_T" "$GHM_GH" api user -q .login 2>&1)"
+        if [[ "${quem,,}" == "${login,,}" ]]; then gh_ok=ok; else gh_ok="FALHOU (${quem:0:60})"; falhas=$((falhas+1)); fi
+      fi
+      GHM_T=""
+      printf '%-24s git: %-7s gh: %s\n' "$login" "$git_ok" "$gh_ok"
+    done
+    [[ $falhas -eq 0 ]]
+    ;;
+  esquecer)
+    # Apaga as cópias decifradas da memória da sessão; o próximo uso decifra de novo.
+    if [[ -n "${XDG_RUNTIME_DIR:-}" && -d "$XDG_RUNTIME_DIR/github-multiconta" ]]; then
+      rm -rf -- "$XDG_RUNTIME_DIR/github-multiconta"
+    fi
+    echo "Cópias da sessão apagadas."
+    ;;
+  *) sed -n '2,3p' "$0" | sed 's/^# \{0,1\}//'; exit 64 ;;
+esac

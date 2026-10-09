@@ -1,0 +1,16 @@
+Tokens das contas do GitHub: um arquivo por conta, nunca no Git.
+
+  <login>.token   token (PAT) da conta <login>, só o valor, em uma linha
+
+Como usar:
+  1. Crie o token no GitHub (clássico: escopos repo e read:org; na empresa, com acesso à organização).
+  2. Grave o valor em <login>.token nesta pasta, com o mesmo <login> da linha CONTA_<n> do .env.
+  3. Rode ./instalar.sh na pasta do kit.
+
+O instalar.sh guarda o token em ~/.config/github-multiconta/.secrets/ (cifrado para este
+equipamento, quando ele sabe cifrar) e APAGA o arquivo daqui. Esta pasta fica vazia depois de
+instalar. A cópia cifrada só abre neste equipamento e neste usuário: em outro equipamento, crie
+um token novo para ele.
+
+Trocar um token: grave o novo em <login>.token e rode ./instalar.sh de novo.
+Permissões: pasta 0700, arquivo 0600.
