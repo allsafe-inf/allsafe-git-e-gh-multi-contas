@@ -4,7 +4,7 @@
 
 **Várias contas do GitHub no mesmo computador, para `git` e `gh`: a conta certa é escolhida pelo dono do remoto, sem autenticação em nenhuma pasta.**
 
-![Versão](https://img.shields.io/badge/versão-0.2.1-blue)
+![Versão](https://img.shields.io/badge/versão-0.2.2-blue)
 ![Bash](https://img.shields.io/badge/Bash-5.2-4EAA25?logo=gnubash&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-2.47-F05032?logo=git&logoColor=white)
 ![GitHub CLI](https://img.shields.io/badge/GitHub%20CLI-2.46-181717?logo=github&logoColor=white)
@@ -85,7 +85,7 @@ Cada comando, com a foto e a explicação: [comandos, um por um](doc/aplicacao/R
 ## 🚀 Instalação rápida
 
 ```bash
-git clone <endereço deste repositório>
+git clone https://github.com/allsafe-inf/allsafe-git-e-gh-multi-contas.git
 cd allsafe-git-e-gh-multi-contas
 cp .env.example .env    # ajuste as linhas CONTA_<n>
 ./instalar.sh
@@ -338,10 +338,10 @@ A bateria roda em uma pasta de trabalho separada (`$TEMP_DIR/github-multiconta/t
 
 ## 🗺️ Plano
 
-O plano de criação e mudança (alternativas, testes, evidências e progresso) é privado e fica em repositório próprio, fora deste. Status: versão 0.2.1 concluída.
+O plano de criação e mudança (alternativas, testes, evidências e progresso) é privado e fica em repositório próprio, fora deste. Status: versão 0.2.2 concluída.
 
 <a name="versao"></a>
 
 ## 🏷️ Versão
 
-Versão atual: **0.2.1** · histórico em [CHANGELOG.md](CHANGELOG.md).
+Versão atual: **0.2.2** · histórico em [CHANGELOG.md](CHANGELOG.md).

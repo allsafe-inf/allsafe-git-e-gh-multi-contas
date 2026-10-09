@@ -2,6 +2,10 @@
 
 ## [Não lançado]
 
+## [0.2.2] - 2026-10-09
+### Corrigido
+- O comando de instalação do README traz o endereço do repositório da empresa.
+
 ## [0.2.1] - 2026-10-09
 ### Alterado
 - Fotos do terminal refeitas com nomes de conta de exemplo e sem nome de repositório.
