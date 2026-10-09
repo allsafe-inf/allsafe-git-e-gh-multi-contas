@@ -4,7 +4,7 @@
 
 **Várias contas do GitHub no mesmo computador, para `git` e `gh`: a conta certa é escolhida pelo dono do remoto, sem autenticação em nenhuma pasta.**
 
-![Versão](https://img.shields.io/badge/versão-0.2.0-blue)
+![Versão](https://img.shields.io/badge/versão-0.2.1-blue)
 ![Bash](https://img.shields.io/badge/Bash-5.2-4EAA25?logo=gnubash&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-2.47-F05032?logo=git&logoColor=white)
 ![GitHub CLI](https://img.shields.io/badge/GitHub%20CLI-2.46-181717?logo=github&logoColor=white)
@@ -60,7 +60,9 @@ Vale para o `git` e para o `gh`, no terminal, no VS Code e nos agentes de IA (Cl
 
 <a href="doc/imagens/terminal-principal.png"><img src="doc/imagens/terminal-principal.png" alt="Terminal com as contas instaladas e o teste de git e gh em ok nas duas contas" width="100%"></a>
 
-<sub><b>v0.2.0</b> · contas instaladas e teste · captura de 2026-10-09</sub>
+<sub><b>v0.2.1</b> · contas instaladas e teste · captura de 2026-10-09</sub>
+
+Nas fotos, os nomes das contas são de exemplo.
 
 Cada comando, com a foto e a explicação: [comandos, um por um](doc/aplicacao/README.md).
 
@@ -83,7 +85,7 @@ Cada comando, com a foto e a explicação: [comandos, um por um](doc/aplicacao/R
 ## 🚀 Instalação rápida
 
 ```bash
-git clone https://github.com/CarlosSuporteISP/allsafe-git-e-gh-multi-contas.git
+git clone <endereço deste repositório>
 cd allsafe-git-e-gh-multi-contas
 cp .env.example .env    # ajuste as linhas CONTA_<n>
 ./instalar.sh
@@ -336,10 +338,10 @@ A bateria roda em uma pasta de trabalho separada (`$TEMP_DIR/github-multiconta/t
 
 ## 🗺️ Plano
 
-O plano de criação e mudança (alternativas, testes, evidências e progresso) é privado e fica em repositório próprio, fora deste. Status: versão 0.2.0 concluída.
+O plano de criação e mudança (alternativas, testes, evidências e progresso) é privado e fica em repositório próprio, fora deste. Status: versão 0.2.1 concluída.
 
 <a name="versao"></a>
 
 ## 🏷️ Versão
 
-Versão atual: **0.2.0** · histórico em [CHANGELOG.md](CHANGELOG.md).
+Versão atual: **0.2.1** · histórico em [CHANGELOG.md](CHANGELOG.md).

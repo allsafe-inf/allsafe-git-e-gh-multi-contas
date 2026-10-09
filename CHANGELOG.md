@@ -2,6 +2,11 @@
 
 ## [Não lançado]
 
+## [0.2.1] - 2026-10-09
+### Alterado
+- Fotos do terminal refeitas com nomes de conta de exemplo e sem nome de repositório.
+- Visualizadores de imagens e de diagramas sem o caminho local de quem os gerou.
+
 ## [0.2.0] - 2026-10-09
 ### Adicionado
 - Qualquer número de contas, uma por linha `CONTA_<n>` no `.env`.

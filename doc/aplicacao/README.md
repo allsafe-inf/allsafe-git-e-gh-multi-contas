@@ -4,7 +4,7 @@
 
 ## 💡 Em poucas palavras
 
-Cada comando do kit, com a foto da saída real no terminal e a explicação do que ele faz. Nenhum deles mostra token.
+Cada comando do kit, com a foto da saída real no terminal e a explicação do que ele faz. Nenhum deles mostra token. Nas fotos, os nomes das contas foram trocados por nomes de exemplo (`conta-pessoal-01` e `empresa-abc`).
 
 <details>
 <summary>Sumário — clique para expandir</summary>
@@ -21,7 +21,7 @@ Cada comando do kit, com a foto da saída real no terminal e a explicação do q
 
 <a href="imagens/instalar.png"><img src="imagens/instalar.png" alt="Saída do instalar.sh com as duas contas, os tokens mantidos e o comando de remoto de cada conta" width="100%"></a>
 
-<sub><b>v0.2.0</b> · <code>./instalar.sh</code> · captura de 2026-10-09</sub>
+<sub><b>v0.2.1</b> · <code>./instalar.sh</code> · captura de 2026-10-09</sub>
 
 **Para que serve:** ler o `.env` e o `.secrets/`, guardar cada token cifrado e instalar os comandos. Pode ser rodado de novo sempre que uma conta ou um token mudar.
 
@@ -50,7 +50,7 @@ Cada comando do kit, com a foto da saída real no terminal e a explicação do q
 
 <a href="../imagens/terminal-principal.png"><img src="../imagens/terminal-principal.png" alt="Saída de github-multiconta contas e de github-multiconta testar, com git e gh em ok nas duas contas" width="100%"></a>
 
-<sub><b>v0.2.0</b> · <code>github-multiconta contas</code> e <code>testar</code> · captura de 2026-10-09</sub>
+<sub><b>v0.2.1</b> · <code>github-multiconta contas</code> e <code>testar</code> · captura de 2026-10-09</sub>
 
 **Para que serve:** ver quais contas este computador tem e conferir se o `git` e o `gh` respondem com a conta certa em cada uma.
 
@@ -70,7 +70,7 @@ Cada comando do kit, com a foto da saída real no terminal e a explicação do q
 
 <a href="imagens/gh-conta.png"><img src="imagens/gh-conta.png" alt="Quatro comandos do gh, cada um respondendo com a conta do dono citado ou com a conta dita em GH_CONTA" width="100%"></a>
 
-<sub><b>v0.2.0</b> · <code>gh</code> pelo invólucro · captura de 2026-10-09</sub>
+<sub><b>v0.2.1</b> · <code>gh</code> pelo invólucro · captura de 2026-10-09</sub>
 
 **Para que serve:** usar o `gh` sem trocar de login. A conta sai do próprio pedido.
 
@@ -80,8 +80,8 @@ Cada comando do kit, com a foto da saída real no terminal e a explicação do q
 |---|---|---|
 | `gh api user -q .login` | a padrão | Fora de repositório e sem dono no pedido |
 | `GH_CONTA=empresa gh api user -q .login` | a do remoto `empresa` | `GH_CONTA` aceita o dono, o login ou o nome do remoto |
-| `gh repo view <dono>/<repo>` | a do dono | O dono está escrito no pedido |
-| `gh repo list <dono>` | a do dono | O dono sozinho também decide |
+| `GH_REPO=<dono>/<repo> gh api user -q .login` | a do dono | O dono está no repositório indicado; `-R <dono>/<repo>` faz o mesmo |
+| `gh repo list <dono>` | a do dono | O dono sozinho no pedido também decide |
 
 <a name="esquecer"></a>
 
@@ -89,7 +89,7 @@ Cada comando do kit, com a foto da saída real no terminal e a explicação do q
 
 <a href="imagens/esquecer.png"><img src="imagens/esquecer.png" alt="Saída de github-multiconta esquecer seguida de um teste que volta a dar ok" width="100%"></a>
 
-<sub><b>v0.2.0</b> · <code>github-multiconta esquecer</code> · captura de 2026-10-09</sub>
+<sub><b>v0.2.1</b> · <code>github-multiconta esquecer</code> · captura de 2026-10-09</sub>
 
 **Para que serve:** apagar na hora as cópias dos tokens que ficam em memória durante a sessão. O próximo comando decifra de novo, sozinho.
 
@@ -101,7 +101,7 @@ Cada comando do kit, com a foto da saída real no terminal e a explicação do q
 
 <a href="imagens/testes.png"><img src="imagens/testes.png" alt="Fim da bateria de testes, com 108 ok e nenhuma falha" width="100%"></a>
 
-<sub><b>v0.2.0</b> · <code>./testes/testar.sh</code> · captura de 2026-10-09</sub>
+<sub><b>v0.2.1</b> · <code>./testes/testar.sh</code> · captura de 2026-10-09</sub>
 
 **Para que serve:** provar o kit inteiro com contas e tokens fictícios, sem tocar nas contas reais nem no GitHub.
 
