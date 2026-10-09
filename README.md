@@ -4,7 +4,7 @@
 
 **Várias contas do GitHub no mesmo computador, para `git` e `gh`: a conta certa é escolhida pelo dono do remoto, sem autenticação em nenhuma pasta.**
 
-![Versão](https://img.shields.io/badge/versão-0.2.2-blue)
+![Versão](https://img.shields.io/badge/versão-0.3.0-blue)
 ![Bash](https://img.shields.io/badge/Bash-5.2-4EAA25?logo=gnubash&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-2.47-F05032?logo=git&logoColor=white)
 ![GitHub CLI](https://img.shields.io/badge/GitHub%20CLI-2.46-181717?logo=github&logoColor=white)
@@ -134,9 +134,6 @@ git push empresa main
 
 O `git` pergunta ao auxiliar qual é a credencial do endereço; o `gh` passa por um invólucro. Os dois descobrem o dono do repositório, acham a conta dele na lista e usam o token dessa conta só naquele comando.
 
-<details>
-<summary>Fluxograma completo, com a sequência escrita — clique para expandir</summary>
-
 <!-- diagrama: doc/diagramas/funcionamento-fluxograma.mmd -->
 ```mermaid
 %%{init: {"theme": "dark"}}%%
@@ -187,7 +184,6 @@ flowchart TD
 | lib.sh | tokens cifrados | decifra uma vez por sessão |
 | lib.sh | cópia da sessão | lê e grava a cópia em memória |
 
-</details>
 
 <details>
 <summary>Como a conta é escolhida — clique para expandir</summary>
@@ -338,10 +334,10 @@ A bateria roda em uma pasta de trabalho separada (`$TEMP_DIR/github-multiconta/t
 
 ## 🗺️ Plano
 
-O plano de criação e mudança (alternativas, testes, evidências e progresso) é privado e fica em repositório próprio, fora deste. Status: versão 0.2.2 concluída.
+O plano de criação e mudança (alternativas, testes, evidências e progresso) é privado e fica em repositório próprio, fora deste. Status: versão 0.3.0 concluída.
 
 <a name="versao"></a>
 
 ## 🏷️ Versão
 
-Versão atual: **0.2.2** · histórico em [CHANGELOG.md](CHANGELOG.md).
+Versão atual: **0.3.0** · histórico em [CHANGELOG.md](CHANGELOG.md).

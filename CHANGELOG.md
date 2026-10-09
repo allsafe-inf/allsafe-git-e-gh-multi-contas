@@ -2,6 +2,10 @@
 
 ## [Não lançado]
 
+## [0.3.0] - 2026-10-09
+### Alterado
+- O fluxograma de como funciona fica aberto no README, com a sequência escrita logo abaixo.
+
 ## [0.2.2] - 2026-10-09
 ### Corrigido
 - O comando de instalação do README traz o endereço do repositório da empresa.
