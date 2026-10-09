@@ -4,7 +4,7 @@
 
 **Várias contas do GitHub no mesmo computador, para `git` e `gh`: a conta certa é escolhida pelo dono do remoto, sem autenticação em nenhuma pasta.**
 
-![Versão](https://img.shields.io/badge/versão-0.3.0-blue)
+![Versão](https://img.shields.io/badge/versão-0.3.1-blue)
 ![Bash](https://img.shields.io/badge/Bash-5.2-4EAA25?logo=gnubash&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-2.47-F05032?logo=git&logoColor=white)
 ![GitHub CLI](https://img.shields.io/badge/GitHub%20CLI-2.46-181717?logo=github&logoColor=white)
@@ -91,7 +91,14 @@ cp .env.example .env    # ajuste as linhas CONTA_<n>
 ./instalar.sh
 ```
 
-Antes de instalar, grave o token de cada conta em `.secrets/<login>.token` (um arquivo por conta, só o token). O instalador confere o `.env`, guarda cada token cifrado, apaga o arquivo em texto, instala os comandos em `~/.local/bin` e liga o `git` ao auxiliar de credencial do GitHub. Pode ser rodado de novo quantas vezes for preciso.
+Antes de instalar, grave o token de cada conta em `.secrets/<login>.token`: um arquivo por conta, só o token. O `<login>` é o **nome de usuário da conta no GitHub**, o mesmo que está no campo do meio da linha `CONTA_<n>` do `.env`. Não é `conta1`, nem o nome do remoto (`origin`, `empresa`), nem o e-mail.
+
+| Linha no `.env` | Arquivo do token |
+|---|---|
+| `CONTA_1=origin:maria-dev:maria-dev` | `.secrets/maria-dev.token` |
+| `CONTA_2=empresa:maria-acme:acme-ltda` | `.secrets/maria-acme.token` |
+
+O instalador confere o `.env`, guarda cada token cifrado, apaga o arquivo em texto, instala os comandos em `~/.local/bin` e liga o `git` ao auxiliar de credencial do GitHub. Pode ser rodado de novo quantas vezes for preciso.
 
 | Quero | Comando |
 |---|---|
@@ -340,4 +347,4 @@ O plano de criação e mudança (alternativas, testes, evidências e progresso) 
 
 ## 🏷️ Versão
 
-Versão atual: **0.3.0** · histórico em [CHANGELOG.md](CHANGELOG.md).
+Versão atual: **0.3.1** · histórico em [CHANGELOG.md](CHANGELOG.md).

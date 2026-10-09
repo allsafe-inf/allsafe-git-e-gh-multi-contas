@@ -40,7 +40,7 @@ Cada comando do kit, com a foto da saída real no terminal e a explicação do q
 | Opção | O que faz |
 |---|---|
 | `--importar-do-git` | Aproveita os tokens que o Git já guarda neste computador, sem mostrá-los |
-| sem opção | Usa os arquivos `.secrets/<login>.token`; o que já está guardado é mantido |
+| sem opção | Usa os arquivos `.secrets/<login>.token` (`<login>` é o usuário da conta no GitHub, o campo do meio de `CONTA_<n>`); o que já está guardado é mantido |
 
 </details>
 

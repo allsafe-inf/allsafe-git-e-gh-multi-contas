@@ -2,6 +2,11 @@ Tokens das contas do GitHub: um arquivo por conta, nunca no Git.
 
   <login>.token   token (PAT) da conta <login>, só o valor, em uma linha
 
+<login> é o nome de usuário da conta no GitHub, o campo do meio da linha CONTA_<n> do .env.
+Não é "conta1", nem o nome do remoto, nem o e-mail. Exemplo:
+  CONTA_1=origin:maria-dev:maria-dev      ->  maria-dev.token
+  CONTA_2=empresa:maria-acme:acme-ltda    ->  maria-acme.token
+
 Como usar:
   1. Crie o token no GitHub (clássico: escopos repo e read:org; na empresa, com acesso à organização).
   2. Grave o valor em <login>.token nesta pasta, com o mesmo <login> da linha CONTA_<n> do .env.

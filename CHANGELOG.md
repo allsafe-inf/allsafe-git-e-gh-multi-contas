@@ -2,6 +2,10 @@
 
 ## [Não lançado]
 
+## [0.3.1] - 2026-10-09
+### Alterado
+- O README, o `.env.example` e o aviso da pasta `.secrets/` dizem que o `<login>` do arquivo do token é o usuário da conta no GitHub (o campo do meio de `CONTA_<n>`), com exemplo.
+
 ## [0.3.0] - 2026-10-09
 ### Alterado
 - O fluxograma de como funciona fica aberto no README, com a sequência escrita logo abaixo.
